@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcd.bootstrapcdn.con/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="footer.css">    
+           
+<title>Pagina</title>
+</head>
+<style>
+    .quiz-container {
+        outline: #33FF34 1px;
+        background-color: #F1BF98;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 2px #3D348B;
+        width: 700px;
+        overflow: hidden;
+    }
+
+    .quiz-header {
+        padding: 4rem;
+    }
+li label {
+        cursor: pointer;
+    }
+
+    button {
+        background-color: #EBA398;
+        color: #6A33FF;
+        border: none;
+        display: block;
+        width: 100%;
+        cursor: pointer;
+        font-size: 15px;
+        font-family: verdana, Geneva;
+        padding: 15px;
+    }
+
+    button:hover {
+        background-color: #EA645D;
+    }
+
+    button:focus {
+        outline: none;
+        background-color: #B51F17;
+    }
+     body{
+    background-image: linear-gradient(to right, #1D3354, #467599, #9ED8DB, #1D3354);
+}
+</style>
+<div style="margin:24px;">
+    <nav class="navbar navbar-light" style="background-color: #1D3354;">
+    <div class="container">
+    <a class="navbar-brand" href="index.html">Inicio</a>
+    <ul class="nav navbar-nav">
+<li>
+<a href="index2.html">Index</a> 
+</li>
+<li>
+<a href="cuestionario.html">Cuestionario</a>
+</li>
+<li>
+<a href="perfil.html">Perfil</a>
+</li>
+<li>
+<a href="movies.html">Api Movies</a>
+</li>
+<li>
+    <a href="calculadora1.html">Calculadora</a>
+</li>
+<li>
+<a href="calculadora2.html">Calculadora Fisica</a>
+</li>
+</li>
+</ul>
+</div>
+</nav>
+<div class="quiz-container" id="quiz">
+  <div class="quiz-header">
+    <div class="image-container">
+      <img src="" alt="Imagen" id="question-image" style="width:250px; height:200px;">
+    </div>
+    <h2 id="question">Question text</h2>
+    <ul>
+      <li>
+        <input type="radio" name="answer" id="a" class="answer">
+        <label for="a" id="a_text">Question</label>
+      </li>
+      <li>
+        <input type="radio" name="answer" id="b" class="answer">
+        <label for="b" id="b_text">Question</label>
+      </li>
+      <li>
+        <input type="radio" name="answer" id="c" class="answer">
+        <label for="c" id="c_text">Question</label>
+      </li>
+      <li>
+        <input type="radio" name="answer" id="d" class="answer">
+        <label for="d" id="d_text">Question</label>
+      </li>
+    </ul>
+  </div>
+  <button id="submit">Siguiente</button>
+</div>
+
+<script>
+const quizData = [
+
+ {
+  question: "1. Que es Halo?",
+  image: "1.jpg",
+  a:"Una raza extraterrestre",
+  b:"Un anillo",
+  c:"Un universo",
+  d:"Un sol",
+  correct: "a",
+  },
+
+   {
+  question: "2. Como empiezas Halo CE?",
+  image: "2.jpg",
+  a:"Comiendo hamburguesas",
+  b:"En sueño criogenico en la nave The Pillar Of Autumn",
+  c:"En los restos del planeta Reach",
+  d:"Tu en el espacio y pensando en lo ocurrido",
+  correct: "b",
+  },
+
+   {
+  question: "3. Que es el Covenant",
+  image: "3.jpg",
+  a:"Una consola llamada asi",
+  b:"El creador del Test",
+  c:"Una raza alienigena que desea controlar unos anillos de gran poder",
+  d:"Un cereal que se vende en el planeta Tierra",
+  correct: "c",
+  },
+
+   {
+  question: "4. Como se llama la mision donde aparece por primera vez el Flood?",
+  image: "4.jpg",
+  a:"Torre.",
+  b:"Excavación.",
+  c:"Puesto avanzado Tremonius.",
+  d:"Chispa culpable 343",
+  correct: "d",
+  },
+
+   {
+  question: "5. Que es el Jefe Maestro?",
+  image: "5.jpg",
+  a:"Es un jefe y a la vez maestro",
+  b:"Una herramienta",
+  c:"Un soldado geneticamente avanzado",
+  d:"Mi maestro de escolta",
+  correct: "c",
+  },
+
+   {
+  question: "6. Quien es Thel' Vadam?",
+  image: "6.jpg",
+  a:"Una espada de nombre asi",
+  b:"El nuevo Inquisidor de la raza sangheili, acusado por la destruccion del anillo  Halo",
+  c:"Un alienigena  vendedor de palomitas",
+  d:"El nombre de una banana en ese planeta",
+  correct: "b",
+  },
+
+   {
+  question: "7. Como empiezas Halo 2?",
+  image: "7.jpg",
+  a:"Una nave yendo al anillo halo para rescatar al Jefe Maestro",
+  b:"Estas castigado y honrrado por los eventos en el anillo Halo",
+  c:"Fueron toda la UNSC al cine a ver spiderman 4",
+  d:"Una nave en el espacio intentando aterrizar en el planeta tierra",
+  correct: "b",
+  },
+
+ {
+  question: "8. ¿Quien es Avery J. Johnson?",
+  image: "8.jpg",
+  a:"Un amigo que tambien juega Helo",
+  b:"El hermano del Jefe Maestro",
+  c:"Un sargento",
+  d:"Un nombre",
+  correct: "c",
+  },
+
+ {
+  question: "9. ¿Quien te traicionó cuando tomaste el mando de The' Vadam?",
+  image: "9.jpg",
+  a:"El jefe maestro",
+  b:"Tartarus",
+  c:"Los jerarcas",
+  d:"Otro sangheili",
+  correct: "c",
+  },
+
+ {
+  question: "10. ¿Como terminaste en Halo 2?",
+  image: "10.jpg",
+  a:"Dentro del portal que va al arca en forma de cono",
+  b:"Ver al jefe maestro jugar dentro de un juego",
+  c:"Con la destruccion total de la tierra",
+  d:"Destruyendo los 7 anillos Halo",
+  correct: "a",
+  },
+
+
+];
+
+const quiz = document.getElementById('quiz');
+const answerEls = document.querySelectorAll('.answer');
+const questionEl = document.getElementById('question');
+const a_text = document.getElementById('a_text');
+const b_text = document.getElementById('b_text');
+const c_text = document.getElementById('c_text');
+const d_text = document.getElementById('d_text');
+const imageEl = document.getElementById('question-image');
+const submitBtn = document.getElementById('submit');
+
+let currentQuiz = 0;
+let score = 0;
+
+loadQuiz();
+
+function loadQuiz() {
+  deselectAnswers();
+
+  const currentQuizData = quizData[currentQuiz];
+
+  questionEl.innerText = currentQuizData.question;
+  a_text.innerText = currentQuizData.a;
+  b_text.innerText = currentQuizData.b;
+  c_text.innerText = currentQuizData.c;
+  d_text.innerText = currentQuizData.d;
+  imageEl.src = currentQuizData.image;
+}
+
+function deselectAnswers() {
+  answerEls.forEach((answerEl) => (answerEl.checked = false));
+}
+
+function getSelected() {
+  let answer;
+
+  answerEls.forEach((answerEl) => {
+    if (answerEl.checked) {
+      answer = answerEl.id;
+    }
+  });
+
+  return answer;
+}
+
+submitBtn.addEventListener('click', () => {
+  const answer = getSelected();
+
+  if (answer) {
+    if (answer === quizData[currentQuiz].correct) {
+      score++;
+    }
+
+    currentQuiz++;
+
+    if (currentQuiz < quizData.length) {
+      loadQuiz();
+    } else {
+      quiz.innerHTML = `
+        <h2>Respondiste ${score}/${quizData.length} preguntas correctamente</h2>
+        <button onclick="location.reload()">Volver a intentar</button>
+      `;
+    }
+  }
+});
+</script>
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h2>Contactame</h2>
+        <p>Si estas interesado en contactarme, puedes hacerlo a traves de las siguientes redes sociales:</p>
+        <div class="contact-links">
+          <a href="http://www.facebook.com/miperfil" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a href="http://www.instagram.com/miperfil" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="http://www.twitter.com/miperfil" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="http://www.snapchat.com/miperfil" target="_blank"><i class="fab fa-snapchat"></i></a>
+          <a href="http://www.linkedin.com/miperfil" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="http://www.youtube.com/miperfil" target="_blank"><i class="fab fa-youtube"></i></a>
+
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  //Con lo siguiente hare que los links de las paginas se abran mediante javascript en un pagina nueva
+const socialnetworks = document.querySelectorAll('.contact-links a');
+socialnetworks.forEach(link =>{
+  link.addEventListener('click', e =>{
+    e.preventDefault();
+    window.open(link.href, '_blank');
+  });
+});
+</script>
+</footer>
+<script >
+       const socialnetworks = document.querySelectorAll('.contact-links a');
+    socialnetworks.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            window.open(link.href, '_blank');
+        });
+    });
+    </script>
+</body>
+</html>
